@@ -1,0 +1,618 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+a,
+i {
+  cursor: pointer;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html{
+  font-size: 95%; /* 62.5% = 10px */
+}
+
+body {
+  /*background: #111213;*/
+  background-color: rgb(14,21,37);
+  color: #fff;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+#overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: none;
+  color: white;
+  font-size: 5rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  overflow-y: hidden;
+}
+
+main {
+  margin: 0;
+  padding: 0;
+  width: 92%;
+  min-height: 100vh;
+  position: relative;
+  left: 6%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+
+/* hiding scroll bar */
+/* for chrome , opera */
+.mainContent::-webkit-scrollbar{
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.mainContent{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* navbar */
+.sidebar {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #111;
+  border-radius: 0.5rem;
+  z-index: 100;
+  position: absolute;
+  box-shadow: rgb(0,0,0) 0px 1px 2px;
+}
+
+.toggle {
+  color: #fff;
+  font-size: 1.3rem;
+  width: 2.5%;
+  position: relative;
+  left: 35%;
+}
+
+.menu {
+  display: none;
+  height: 100vh;
+  width: 50vw;
+  align-self: center;
+  z-index: 100;
+}
+
+.menu div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.list li {
+  list-style-type: none;
+}
+
+.list a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.list a i{
+  padding: .4rem;
+  color: #fff;
+}
+
+.list h3{
+ align-self: flex-start;
+ margin-left: 2rem;
+}
+
+/* header */
+.header {
+  background-color:#111;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+  font-size: 1.2rem;
+  box-shadow: rgb(0,0,0) 0px 1px 2px;
+}
+
+.logo {
+  width: 50%;
+}
+
+.header i{
+  padding: .5rem;
+}
+
+/* video box */
+.playVideoBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 1.4rem;
+}
+
+.playVideoBox a {
+  color: #fff;
+}
+
+.playVideoBox .reported {
+  color: red;
+}
+
+.container {
+  width: 90%;
+  margin: 2rem auto 0.6rem auto;
+  border-radius: 1rem;
+}
+
+.mainVdoBox {
+  width: 90%;
+  margin: 2rem auto;
+  border: 0.3rem solid #fff;
+  border-radius: 1rem;
+}
+
+.mainVdo {
+  width: 100%;
+  display: block;
+  margin: auto;
+  border-radius: 0.7rem;
+}
+
+.mainTitle {
+  color: #fff;
+  padding: 0.3rem 1rem;
+  font-size: 1rem;
+}
+
+.container video {
+  width: 100%;
+  display: block;
+  margin: auto;
+  border-radius: 0.7rem;
+}
+
+.title {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.actions i {
+  font-size: 1.6rem;
+}
+
+.actions {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1.7rem;
+}
+
+.actions div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.actions div p {
+  padding: 0.5rem;
+  font-size: 0.8rem;
+}
+
+video{
+   object-fit: cover;
+}
+
+/* video cards */
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.videoBox {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: space-around;
+  /*  border: 1px solid #fff; */
+  margin-top: 1rem;
+  cursor: pointer;
+  padding: 0.3rem;
+}
+
+.videoBox:hover {
+  background-color: #454545;
+}
+
+.videoBox img {
+  width: 40%;
+  border-radius: 0.5rem;
+}
+
+.stat {
+  width: 40%;
+}
+
+.videoBox p {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.videoBox span {
+  border: 1px solid #fff;
+  font-size: 0.8rem;
+  background: #ffffff;
+  color: #000;
+  margin-top: 1rem;
+  border-radius: 0.4rem;
+  font-weight: bold;
+  padding: 0.2rem;
+}
+
+.videoBox p {
+  font-size: 1rem;
+}
+
+/* login form / signup form */
+.heading {
+  font-size: 2rem;
+}
+
+.login,
+.signup,
+.otp,
+.resetPassword {
+  height: 17rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.resetPassword {
+  height: 24rem;
+}
+
+.loginForm,
+.signupForm,
+.otpForm,
+.resetPasswordForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+input {
+  background-color: #f9f9f9;
+  height: 2.5rem;
+  color: #000;
+  outline: none;
+  width: 80%;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  padding: 0 0.5rem;
+  font-size: 1rem;
+  border: none;
+}
+
+input:focus {
+  background-color: #8ea7e9;
+  color: #fff;
+}
+
+.loginBtn,
+.signupBtn,
+.uploadBtn,
+.verifyBtn,
+.formBtn {
+  background-color: #5b8fb9;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.miscLinks a,
+.resendOtp,
+.otpStatus {
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 0.4rem;
+}
+
+.errorMsg {
+  color: red;
+  align-self: flex-start;
+  font-size: 0.9rem;
+  padding: 0 2.7rem;
+}
+
+.loginMsg {
+  padding-top: 0.5rem;
+  color: red;
+}
+
+/* profile  */
+.personalInfo {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3rem;
+}
+
+.personalInfo img {
+  width: 30%;
+  border-radius: 1.5rem;
+}
+
+.personalInfo .name span {
+  font-size: 2.3rem;
+}
+
+.personalInfo .name {
+  font-size: 2rem;
+}
+
+.deleteVideo {
+  color: red;
+  text-decoration: none;
+  padding: 0.3rem;
+  font-size: 1.4rem;
+}
+
+.videoBoxProfile {
+  height: 6rem;
+}
+
+.miscInfo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.miscInfo div {
+  text-align: center;
+}
+
+.miscInfo span {
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.miscInfo p {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.logoutBtn a {
+  border: 1px solid #fff;
+  padding: 0.7rem;
+  font-size: 1rem;
+  width: 20%;
+  background: #ffffff;
+  color: #000;
+  margin-top: 0.6rem;
+  border-radius: 0.4rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2rem;
+}
+.tabs button {
+  border: none;
+  outline: none;
+  background: rgb(14,21,37);
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.tabs .activeTab {
+  border-bottom: 0.2rem solid #3b3486;
+  border-radius: 0.2rem;
+  padding: 0.2rem;
+}
+
+.uploadSec {
+  display: none;
+}
+
+/* upload sec */
+input[type="file"] {
+  padding-top: 0.7rem;
+}
+
+label {
+  font-size: 1rem;
+}
+
+.uploadVideoDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.uploadVideoDiv h1 {
+  margin: 1rem;
+}
+
+.response {
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 0.5rem;
+  color: #07cc53;
+  display: none;
+}
+
+/* notyf message */
+div.notyf__message {
+  font-size: 1rem;
+}
+
+
+/* slider */
+.updates{
+  margin-top: 2rem;
+  height: 13rem;
+}
+.swiper {
+  width: 90%;
+  height: 100%;
+  border-radius: 1rem;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 14px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.swiper-slide img{
+  width: 100%;
+  object-fit: cover;
+}
+
+/* default page */
+.bgimg {
+  height: 80%;
+  /* Center the background image */
+  background-position: center;
+  /* Scale and zoom in the image */
+  background-size: cover;
+  /* Add position: relative to enable absolutely positioned elements inside the image (place text) */
+  position: relative;
+  /* Add a white text color to all elements inside the .bgimg container */
+  color: white;
+  /* Add a font */
+  font-family: "Courier New", Courier, monospace;
+  /* Set the font-size to 25 pixels */
+  font-size: 1rem;
+}
+
+.bgimg a{
+  color: #fff;
+}
+
+/* Position text in the middle */
+.middle {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Style the <hr> element */
+hr {
+  margin: auto;
+  width: 40%;
+}
+
+@media only screen and (max-width: 1450px) and (min-width: 800px){
+  
+  html{
+    font-size: 150%; /* 32px */
+  }
+  
+  .sidebar{
+    width: 25%;
+  }
+ 
+  .menu{
+    display: block;
+    width: 100%;
+  }
+  
+  .toggle{
+    display: none;
+  }
+  
+  main{
+    height: 100vh;
+    width: 74.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    left: 24%;
+  }
+  
+    .header{
+   width: 100%;
+    }
+
+ 
+  .loginForm,.signupForm,.otpForm,.resetPasswordForm,input{
+    width: 100%;
+  }
+  
+  .login,.signup,.otp,.resetPassword{
+    height: 23rem;
+  }
+  
+  .tabs button{
+    margin-left: 1rem;
+  }
+  
+  .updates{
+    height: 15rem;
+    width: 65vw;
+    display: block;
+    margin: 2rem auto;
+  }
+  
+  .swiper{
+   width: 100%;
+  }
+  
+ 
+}

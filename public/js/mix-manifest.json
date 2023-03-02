@@ -1,0 +1,10 @@
+{
+    "/main.js": "/main.js",
+    "/videoAction.js": "/videoAction.js",
+    "/videobox.js": "/videobox.js",
+    "/profile.js": "/profile.js",
+    "/verifyOtp.js": "/verifyOtp.js",
+    "/forgotPass.js": "/forgotPass.js",
+    "/admin.js": "/admin.js",
+    "/utilityFunctions.js": "/utilityFunctions.js"
+}

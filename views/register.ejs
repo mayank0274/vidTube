@@ -1,0 +1,16 @@
+   <div class="signup">
+     <form action="/register" method="post" class="signupForm">
+            <h1 class="heading">Sign up</h1>
+       <input type="text" name="name" required="true" placeholder="enter name"/>
+       <input type="email" name="email" required="true" placeholder="enter email"/>
+       <input type="password" name="password" required="true" placeholder="***********" />
+       
+              <% if(messages.error) { %>
+       <p class="errorMsg"><%= messages.error %></p>
+       <% } %>
+       <input type="submit" value="Sign up" class="signupBtn"/>
+     </form>
+     <div class="miscLinks">
+       <a href="/login">Already have account ?  Log in</a>
+     </div>
+   </div>

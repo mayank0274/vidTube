@@ -1,0 +1,32 @@
+    <section class="updates" id="updates">
+<div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="../assets/trending1.jpeg" alt="information1"></div>
+        <div class="swiper-slide"><img src="../assets/trending2.jpeg" alt="information 2"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+</section>
+        
+        <% if(videos.length==0) { %>
+        <div style="color:#fff;text-align:center;font-size:1.4rem;margin-top:3rem;">No video uploaded!!</div>
+        <% } %>
+        
+        <div class="cards">
+<% videos.forEach(function(video){ %>
+                 <div class="videoBox" data-link="playVideo/<%= video.uuid %>">
+            <img src="<%= video.posterPathEJS %>" alt="video"/>
+            <div class="stat">
+            <p class="vdoTitle">
+              <%= `${video.videoName.slice(0,45)}...` %>
+            </p>
+            <span class="author">@<%= video.author %></span>
+            </div>
+
+          </div>
+<% }) %>
+        </div>
+
+<!--
+ <script src="../js/videobox.js"></script>
+ -->

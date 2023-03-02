@@ -1,0 +1,19 @@
+<div class="otp">
+     <h1 class="heading">Verify Otp</h1>
+     <form action="/verify/<%-email%>" method="POST" class="otpForm">
+       <label>Enter otp sent to your email</label>
+       <input type="text" name="otp" required="true" placeholder="e.g. 1234" />
+              <% if(messages.error) { %>
+       <p class="errorMsg"><%= messages.error %></p>
+       <% } %>
+       <input type="submit" value="Verify" class="verifyBtn"/>
+     </form>
+      <div class="miscLinks">
+       <p class="resendOtp">Resend otp</p>
+     </div>
+     <div class="otpStatus" style="display:none;"></div>
+   </div>
+   
+   <!--
+   <script src="../js/verifyOtp.js"></script>
+   -->

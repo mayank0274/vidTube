@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- custom css -->
+  <link rel="stylesheet" href="../css/style.css">
+
+ <!-- fontawesome icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.0/css/all.css" integrity="sha512-ajhUYg8JAATDFejqbeN7KbF2zyPbbqz04dgOLyGcYEk/MJD3V+HJhJLKvJ2VVlqrr4PwHeGTTWxbI+8teA7snw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- google fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+<!-- notyf alert css -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+
+<!-- slider -->
+<link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+  <title>vidTube : the video streaming web app</title>
+</head>
+<body>
+
+<div class="sidebar">
+  <div id="overlay">
+ 
+</div>
+
+  <div class="toggle"><i class="fas fa-chevron-circle-right"></i></div>
+  <div class="menu">
+    <div>
+    <ul class="list">
+      <li><a href="/" class="menuLink"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="/contact" class="menuLink"><i class="fas fa-envelope"></i>Contact</a></li>
+      <li><a href="/policy" class="menuLink"><i class="fas fa-balance-scale"></i>Policy</a></li>
+       
+       <h3>Account</h3>
+            <li><a href="/user" class="menuLink"> <i class="fas fa-user"></i>User</a></li>
+            <li><a href="/login" class="menuLink"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+            <li><a href="/register" class="menuLink"><i class="fas fa-user-plus"></i>Register</a></li>
+            <li><a href="/forgotPassword" class="menuLink"><i class="fa fa-key"></i>Reset <br> password</a></li>
+      </div>
+    </ul>
+  </div>
+</div>
+	
+  <main>
+  <div class="header">
+    <img src="../assets/logo.png" alt="logo" class="logo">
+    <a href="/user" style="color:#fff;"><i class="fas fa-user"></i></a>
+  </div>
+    <%- body %>
+ </main>
+
+<!-- notyf script -->
+
+<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- custom js -->
+
+<script  src="../js/main.js"></script>
+</body>
+</html>

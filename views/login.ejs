@@ -1,0 +1,19 @@
+
+   <div class="login">
+     <h1 class="heading">Login</h1>
+    <%  if(messages.info) { %>
+     <h2 class="loginMsg"><%= messages.info %></h2>
+     <% } %>
+     <form action="/login" method="POST" class="loginForm">
+       <input type="email" name="email" required="true" placeholder="enter email"/>
+       <input type="password" name="password" required="true" placeholder="***********" />
+       <% if(messages.error) { %>
+       <p class="errorMsg"><%= messages.error %></p>
+       <% } %>
+       <input type="submit" value="Login" class="loginBtn"/>
+     </form>
+     <div class="miscLinks">
+       <a href="/forgotPassword">Forgot Password</a>
+       <a href="/register">Create Account</a></a>
+     </div>
+   </div>

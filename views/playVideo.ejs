@@ -1,0 +1,75 @@
+      <div class="container">
+          <video 
+            controls
+            crossorigin
+            playsinline
+            poster="<%= video.posterPathEJS %>"
+            id="player"
+          >
+            <!-- Video files -->
+            <source
+              src="/loadVideo/<%=video.uuid%>"
+              type="video/mp4"
+              size="576"
+            />
+          </video>
+        </div>
+   <div class="playVideoBox">
+          <p class="title">
+            <%= video.videoName %>
+          </p>
+       <div class="actions">
+
+         
+         
+                   <% if(isLiked){ %>
+                   <div>
+            <a role="button" class="actionBtn"  data-href="/like/<%= video.uuid %>" ><i class="fas fa-thumbs-up"></i></a>
+        <p><%-like_count%></p>
+        </div>
+ <% } else{ %>  
+              <div>
+               <a role="button" class="actionBtn" data-href="/like/<%= video.uuid %>"><i class="far fa-thumbs-up"></i></a>
+        <p><%-like_count%></p>
+        </div>
+ <% } %>
+
+                   <% if(isDislike){ %>
+            <div>
+            <a role="button" class="actionBtn" data-href="/dislike/<%= video.uuid %>" ><i class="fas fa-thumbs-down"></i></a>
+        <p>Dislike</p>
+        </div>
+ <% } else{ %>  
+             <div>
+               <a role="button" class="actionBtn" data-href="/dislike/<%= video.uuid %>"><i class="far fa-thumbs-down"></i></a>
+        <p>Dislike</p>
+        </div>
+<% } %>
+        <div>
+        <a href="/download/<%=video.uuid%>"> <i class="fas fa-download"></i></a>
+         <p>Download</p>
+       </div>
+       <div>
+         <i class="fas fa-share-alt share"></i>
+         <p>Share</p>
+       </div>
+          <% if(isReported){ %>
+          <div>
+            <a role="button" class="actionBtn" data-href="/reportVideo/<%= video.uuid %>" class="reported"><i class="fas fa-flag"></i></a>
+         <p>Report</p>
+            </div>
+ <% } else{ %>  
+       <div>
+               <a role="button" class="actionBtn" data-href="/reportVideo/<%= video.uuid %>"><i class="far fa-flag"></i></a>
+         <p>Report</p>
+               </div>
+<% } %>
+          
+          
+   
+       </div>
+  
+  </div>
+  <!--
+  <script src="../js/videoAction.js"></script>
+  -->

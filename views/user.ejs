@@ -1,0 +1,78 @@
+ <div class="userInfo">
+ <div class="personalInfo">
+   <img src="../assets/profile.jpeg">
+   <div class="name"><span>Hello,</span> <br><%- name %>
+   </div>
+ </div>
+ <div class="miscInfo">
+   <div class="totalVideo"><span>
+     Videos</span><br>
+     <p><%- count %></p>
+     </div>
+        <%if(user.role=="admin"){ %>
+      <div>
+     <a href="/admin/allUsers" style="color:#fff;">Admin<br>panel</a>
+   </div>
+   <%}%>
+   <div class="logoutBtn">
+                 <form action="/logout" method="post" id="logout">
+              <a href="#" class="nav__link nav__logout" onclick="document.getElementById('logout').submit()">
+               Logout
+              </a>
+              </form>
+   </div>
+ </div>
+ </div>
+ 
+ <div class="tabs">
+   <button class="myVideos activeTab">My videos</button>
+   <button class="uploadVideo">Upload Video</button>
+ </div>
+
+      <div class="cards videoSec">
+        <% if(count==0) { %>
+        <div style="color:#fff;text-align:center;font-size:1.4rem;margin-top:3rem;">No video uploaded!!</div>
+        <% } %>
+<% videos.forEach(function(video){ %>
+                 <div class="videoBox videoBoxProfile">
+            <img src="<%= video.posterPathEJS %>" alt="video"/>
+            <div class="stat">
+                          <p class="vdoTitle">
+              <%= `${video.videoName.slice(0,45)}...`%>
+            </p>
+           
+            <a href="/deleteVideo/<%= video.uuid%>" class="deleteVideo"><i class="far fa-trash-alt "></i></a>
+             <a href="playVideo/<%= video.uuid %>" style="font-size:1rem;color:#fff;">Play</a>
+            </div>
+           
+          </div>
+<% }) %>
+          </div>
+          
+          <div class="uploadSec">
+            <div class="uploadVideoDiv">
+         <div class="response">
+    Uploading files...
+  </div>
+       <label for="title">
+       Video Title
+       </label>
+       <input type="text" name="videoName" required="true" placeholder="enter video title" id="title"/>
+       <label for="poster">
+       Select thumbnail(size:699×392 px)
+       </label>
+       <input type="file" name="poster" required  id="poster">
+       <label for="videoFile">
+        Select video
+       </label>
+       <input type="file" name="video" required id="videoFile" accept="video/*">
+      <input type="submit" value="Upload" class="uploadBtn" /> 
+
+
+  </div>
+          </div>
+
+<!-- 
+<script src="../js/profile.js"></script>
+<script src="../js/videobox.js"></script>
+-->

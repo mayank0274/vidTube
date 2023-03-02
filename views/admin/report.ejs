@@ -1,0 +1,38 @@
+<div class="container my-3 table-responsive">
+    <% if(reports.length == 0){ %>
+    <h1>Data not found!!</h1>
+  <%} else {%>
+  
+<table class="table table-striped">
+  <tcaption>Admin panel - Reported Videos</tcaption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Report Id</th>
+      <th scope="col">Video Id</th>
+      <th scope="col">Reported By</th>
+      <th scope="col">Uploaded By</th>
+      <th scope="col">Date</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+<% reports.forEach(function(report,index){ %>
+    <tr>
+      <th scope="row"><%=index+1%></th>
+      <td><%=report._id%></td>
+      <td><a href="/playVideo/<%=report.video%>" class="link-dark">Play video</a></td>
+      <td><a href="/admin/user/<%=report.user%>" class="link-dark"><%=report.reportBy%></a></td>
+      <td><a href="/admin/user/<%=report.authorId%>" class="link-dark"><%=report.authorName%></a></td>
+      <td><%=moment(report.createdAt).format("YYYY-MM-DD")%></td>
+      <td><select data-reportId="<%=report._id%>" data-videoId="<%=report.video%>" class="selectAction">
+        <option value="Review">Under review</option>
+        <option value="Delete">Delete video</option>
+        <option value="Discard">Discard report</option>
+      </select></td>
+    </tr>
+<% }) %>
+  </tbody>
+</table>
+<%}%>
+</div>
