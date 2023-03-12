@@ -1,6 +1,8 @@
 # vidTube
 vidTube is a video streaming website made using nodeJS and mongoDb
 
+ <img src="demo_vidTube.png" width="100%" alt="demo_vidTube">
+
 # Features
  • Like, dislike, share, download, report a video
  
