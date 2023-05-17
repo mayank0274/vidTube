@@ -23,6 +23,8 @@ shareBtn.addEventListener("click", () => {
 }
 // video actio -> like, dislike,report
 const action = Array.from(document.querySelectorAll(".actionBtn"));
+const commemtsForm = document.querySelector(".commemtsForm");
+const comment = document.querySelector(".commentValue");
 
 if(action){
 
@@ -49,6 +51,26 @@ action.forEach((btn) => {
     }
   });
 });
+}
+
+if(commemtsForm){
+  commemtsForm.addEventListener("submit",async(e)=>{
+    e.preventDefault();
+    const params = commemtsForm.getAttribute("data-action");
+  const url = window.location.href;
+  const urlParts = url.split("/playVideo/");
+  const reqUrl = `${urlParts[0]}${params}`;
+    try {
+      const body = {
+        comment:comment.value,
+      };
+      const res = await sendReq(reqUrl,body,"POST");
+      window.location.reload();
+    } catch (err) {
+      const errMsg = err.toString().slice(6, err.length);
+      showError(errMsg);
+    }
+  })
 }
 }
 

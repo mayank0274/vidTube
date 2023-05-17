@@ -1,8 +1,8 @@
 // send req
-const sendReq = async (reqUrl, body) => {
+const sendReq = async (reqUrl, body,reqMethod="PATCH") => {
   try {
     const res = await fetch(reqUrl, {
-      method: "PATCH",
+      method: reqMethod,
       body: JSON.stringify(body),
       headers: {
         "Content-type": "application/json",

@@ -2,6 +2,7 @@ const FileData = require("../../models/fileStr");
 const Report = require("../../models/report");
 const Like = require("../../models/like");
 const Dislike = require("../../models/dislike");
+const Comment = require("../../models/comments");
 const fs = require("fs");
 
 const videoControls = ()=>{
@@ -24,6 +25,10 @@ const videoControls = ()=>{
       const id = req.params.id;
   try {
     const video = await FileData.findOne({ uuid: id });
+     // get comments for that video
+     const comments = await Comment.find({
+        videoUUID : id
+      });
     if (req.user) {
       const reportedVideo = await Report.findOne({
         user: req.user._id,
@@ -39,13 +44,14 @@ const videoControls = ()=>{
         user: req.user._id,
         video: id,
       });
-
+       
       return res.render("playVideo", {
         video: video,
         isReported: reportedVideo,
         isLiked: likedVideo,
         isDislike: dislikeVideo,
         like_count: video.likes.length,
+        comments
       });
     }
     return res.render("playVideo", {
@@ -54,11 +60,12 @@ const videoControls = ()=>{
       isLiked: false,
       isDislike: false,
       like_count: video.likes.length,
+      comments
     });
   } catch (err) {
     return res
       .status(400)
-      .json({ "error": "Uncaught error occurred while playing video" });
+      .json({ "error": "Uncaught error occurred while playing video","msg": err.message });
   }
     },
     
@@ -77,7 +84,7 @@ const videoControls = ()=>{
     }
     const videoSize = fs.statSync(videoPath).size;
 
-    const CHUNK_SIZE = 10 ** 6; //1mb
+    const CHUNK_SIZE = (10 ** 6)*3; //1mb*3
     const start = Number(range.replace(/\D/g, ""));
     const end = Math.min(start + CHUNK_SIZE, videoSize - 1);
     const contentLength = end - start + 1;
@@ -95,7 +102,7 @@ const videoControls = ()=>{
       .status(400)
       .json({ "error": "Uncaught error occurred while loading video" });
   }
-    }, 
+    },
   };
 }
 

@@ -22,52 +22,58 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 // send req
 var sendReq = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(reqUrl, body) {
-    var res, errMsg, resObj, json;
+    var reqMethod,
+      res,
+      errMsg,
+      resObj,
+      json,
+      _args = arguments;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
-          _context.prev = 0;
-          _context.next = 3;
+          reqMethod = _args.length > 2 && _args[2] !== undefined ? _args[2] : "PATCH";
+          _context.prev = 1;
+          _context.next = 4;
           return fetch(reqUrl, {
-            method: "PATCH",
+            method: reqMethod,
             body: JSON.stringify(body),
             headers: {
               "Content-type": "application/json"
             }
           });
-        case 3:
+        case 4:
           res = _context.sent;
           if (!(res.status == 400)) {
-            _context.next = 10;
+            _context.next = 11;
             break;
           }
-          _context.next = 7;
+          _context.next = 8;
           return res.json();
-        case 7:
+        case 8:
           errMsg = _context.sent;
           resObj = JSON.parse(JSON.stringify(errMsg));
           throw new Error(resObj.error);
-        case 10:
+        case 11:
           if (!(res.status == 403)) {
-            _context.next = 12;
+            _context.next = 13;
             break;
           }
           throw new Error("Log in to perform this action");
-        case 12:
-          _context.next = 14;
+        case 13:
+          _context.next = 15;
           return res.json();
-        case 14:
+        case 15:
           json = _context.sent;
           return _context.abrupt("return", json);
-        case 18:
-          _context.prev = 18;
-          _context.t0 = _context["catch"](0);
+        case 19:
+          _context.prev = 19;
+          _context.t0 = _context["catch"](1);
           throw new Error(_context.t0);
-        case 21:
+        case 22:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[0, 18]]);
+    }, _callee, null, [[1, 19]]);
   }));
   return function sendReq(_x, _x2) {
     return _ref.apply(this, arguments);

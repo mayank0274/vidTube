@@ -41,7 +41,7 @@ const userController = () => {
         });
 
         const fileSave = await fileContent.save();
-
+       console.log(fileSave);
         return res.status(200).json({ msg: "Video uploaded successfully" });
       } catch (err) {
         return res

@@ -17,13 +17,14 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-html{
-  font-size: 95%; /* 62.5% = 10px */
+html {
+  font-size: 95%;
+  /* 62.5% = 10px */
 }
 
 body {
   /*background: #111213;*/
-  background-color: rgb(14,21,37);
+  background-color: rgb(14, 21, 37);
   color: #fff;
   display: flex;
   width: 100vw;
@@ -59,17 +60,18 @@ main {
   overflow-x: hidden;
 }
 
-
 /* hiding scroll bar */
 /* for chrome , opera */
-.mainContent::-webkit-scrollbar{
+.mainContent::-webkit-scrollbar {
   display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-.mainContent{
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+.mainContent {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 /* navbar */
@@ -81,7 +83,7 @@ main {
   border-radius: 0.5rem;
   z-index: 100;
   position: absolute;
-  box-shadow: rgb(0,0,0) 0px 1px 2px;
+  box-shadow: rgb(0, 0, 0) 0px 1px 2px;
 }
 
 .toggle {
@@ -126,19 +128,19 @@ main {
   font-size: 1rem;
 }
 
-.list a i{
-  padding: .4rem;
+.list a i {
+  padding: 0.4rem;
   color: #fff;
 }
 
-.list h3{
- align-self: flex-start;
- margin-left: 2rem;
+.list h3 {
+  align-self: flex-start;
+  margin-left: 2rem;
 }
 
 /* header */
 .header {
-  background-color:#111;
+  background-color: #111;
   color: #ffffff;
   display: flex;
   flex-direction: row;
@@ -146,15 +148,15 @@ main {
   align-items: center;
   height: 3rem;
   font-size: 1.2rem;
-  box-shadow: rgb(0,0,0) 0px 1px 2px;
+  box-shadow: rgb(0, 0, 0) 0px 1px 2px;
 }
 
 .logo {
   width: 50%;
 }
 
-.header i{
-  padding: .5rem;
+.header i {
+  padding: 0.5rem;
 }
 
 /* video box */
@@ -235,8 +237,8 @@ main {
   font-size: 0.8rem;
 }
 
-video{
-   object-fit: cover;
+video {
+  object-fit: cover;
 }
 
 /* video cards */
@@ -445,10 +447,11 @@ input:focus {
   justify-content: space-evenly;
   margin-top: 2rem;
 }
+
 .tabs button {
   border: none;
   outline: none;
-  background: rgb(14,21,37);
+  background: rgb(14, 21, 37);
   color: #fff;
   font-size: 1.5rem;
 }
@@ -496,17 +499,18 @@ div.notyf__message {
   font-size: 1rem;
 }
 
-
 /* slider */
-.updates{
+.updates {
   margin-top: 2rem;
   height: 13rem;
 }
+
 .swiper {
   width: 90%;
   height: 100%;
   border-radius: 1rem;
 }
+
 .swiper-slide {
   text-align: center;
   font-size: 14px;
@@ -516,7 +520,7 @@ div.notyf__message {
   justify-content: center;
 }
 
-.swiper-slide img{
+.swiper-slide img {
   width: 100%;
   object-fit: cover;
 }
@@ -538,7 +542,7 @@ div.notyf__message {
   font-size: 1rem;
 }
 
-.bgimg a{
+.bgimg a {
   color: #fff;
 }
 
@@ -557,26 +561,118 @@ hr {
   width: 40%;
 }
 
-@media only screen and (max-width: 1450px) and (min-width: 800px){
-  
-  html{
-    font-size: 150%; /* 32px */
+/* comments */
+.comment {
+  width: 90%;
+  height: 100px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #111;
+  border-radius: 0.5rem;
+}
+
+.comment:focus {
+  outline-color: #111;
+}
+
+.postCommentBtn {
+  width: 40%;
+  background-color: #3b71ca;
+  color: #fff;
+}
+
+.postCommentBtn:hover {
+  color: #000;
+  background-color: #fff;
+}
+
+.commentCard {
+  background: #454545;
+  border-radius: 0.3rem;
+  padding: 1rem;
+  margin-top: 0.5rem;
+}
+
+.user-info {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.commentCard .user-info img {
+  width: 10%;
+  border-radius: 50%;
+  margin-right: 0.8rem;
+}
+
+.replies {
+  width: 80%;
+  background: #000;
+  margin: 0.6rem;
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+}
+
+.replyBox {
+  margin-top: 0.7rem;
+}
+
+.replyForm {
+  display: flex;
+  width: 100%;
+}
+
+.reply {
+  width: 80%;
+  margin: 0;
+  padding: 0;
+}
+
+.submitReply {
+  width: 30%;
+  background-color: #3b71ca;
+  font-size: 0.8rem;
+  margin: 0 0.2rem;
+  padding: 0;
+}
+
+/* html5 accordion*/
+details {
+  padding: 0.4rem;
+  margin-top: 0.5rem;
+  background: #000;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+details[open] {
+  background: #454545;
+}
+
+summary {
+  padding: 0.2rem;
+}
+
+@media screen and (min-width: 600px) {
+  html {
+    font-size: 150%;
+    /* 32px */
   }
-  
-  .sidebar{
+
+  .sidebar {
     width: 25%;
   }
- 
-  .menu{
+
+  .menu {
     display: block;
     width: 100%;
   }
-  
-  .toggle{
+
+  .toggle {
     display: none;
   }
-  
-  main{
+
+  main {
     height: 100vh;
     width: 74.5%;
     display: flex;
@@ -585,34 +681,83 @@ hr {
     overflow-y: scroll;
     left: 24%;
   }
-  
-    .header{
-   width: 100%;
-    }
 
- 
-  .loginForm,.signupForm,.otpForm,.resetPasswordForm,input{
+  .header {
     width: 100%;
   }
-  
-  .login,.signup,.otp,.resetPassword{
+
+  .logo {
+    width: 30%;
+  }
+
+  .loginForm,
+  .signupForm,
+  .otpForm,
+  .resetPasswordForm,
+  input {
+    width: 100%;
+  }
+
+  .login,
+  .signup,
+  .otp,
+  .resetPassword {
     height: 23rem;
   }
-  
-  .tabs button{
+
+  .tabs button {
     margin-left: 1rem;
   }
-  
-  .updates{
+
+  .updates {
     height: 15rem;
     width: 65vw;
     display: block;
     margin: 2rem auto;
   }
-  
-  .swiper{
-   width: 100%;
+
+  .swiper {
+    width: 60%;
   }
-  
- 
+
+  .cards {
+    width: 70%;
+  }
+
+  #player {
+    width: 70%;
+  }
+
+  .comment {
+    display: block;
+    width: 50%;
+    margin: auto;
+  }
+
+  .postCommentBtn {
+    width: 15%;
+    display: block;
+    margin: auto;
+  }
+
+  .commentCard {
+    width: 40%;
+    display: block;
+    margin: auto;
+    margin-top: 1rem;
+    font-size: 0.7rem;
+  }
+
+  .commentCard .user-info img {
+    width: 8%;
+  }
+
+  .reply {
+    width: 60%;
+    height: 1.7rem;
+  }
+
+  .submitReply {
+    height: 1.6rem;
+  }
 }

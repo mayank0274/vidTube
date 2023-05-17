@@ -62,7 +62,14 @@ const fileStr = mongoose.Schema(
       
     duration:{
       type:String
-    }
+    },
+    comments:[
+      {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Commnet"
+      }
+      
+      ]
   },
   { timestamps: true }
 );

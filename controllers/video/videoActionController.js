@@ -54,7 +54,7 @@ const videoActionController = () => {
             },
             { new: true }
           );
-
+          console.log(pullLike)
           const deleteLike = await Like.findOneAndDelete({
             _id: likedVdo._id,
           });

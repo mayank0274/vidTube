@@ -2,6 +2,8 @@ const videoActionController = require("../controllers/video/videoActionControlle
 
 const videoControls = require("../controllers/video/videoControls")
 
+const commentsController = require("../controllers/video/commentsController");
+
 // middleware
 const user = require("../middleware/user")
 
@@ -18,6 +20,9 @@ const videoAction = (app)=>{
   app.patch("/reportVideo/:id",user,videoActionController().report);
   app.get("/download/:id",videoActionController().download);
   
+  // comments
+  app.post("/newcomment/:id",user,commentsController.createComment);
+  app.post("/commentreply/:id",user,commentsController.addCommentReplies);
 }
 
 module.exports = videoAction;

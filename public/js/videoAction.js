@@ -22,52 +22,58 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 // send req
 var sendReq = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(reqUrl, body) {
-    var res, errMsg, resObj, json;
+    var reqMethod,
+      res,
+      errMsg,
+      resObj,
+      json,
+      _args = arguments;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
-          _context.prev = 0;
-          _context.next = 3;
+          reqMethod = _args.length > 2 && _args[2] !== undefined ? _args[2] : "PATCH";
+          _context.prev = 1;
+          _context.next = 4;
           return fetch(reqUrl, {
-            method: "PATCH",
+            method: reqMethod,
             body: JSON.stringify(body),
             headers: {
               "Content-type": "application/json"
             }
           });
-        case 3:
+        case 4:
           res = _context.sent;
           if (!(res.status == 400)) {
-            _context.next = 10;
+            _context.next = 11;
             break;
           }
-          _context.next = 7;
+          _context.next = 8;
           return res.json();
-        case 7:
+        case 8:
           errMsg = _context.sent;
           resObj = JSON.parse(JSON.stringify(errMsg));
           throw new Error(resObj.error);
-        case 10:
+        case 11:
           if (!(res.status == 403)) {
-            _context.next = 12;
+            _context.next = 13;
             break;
           }
           throw new Error("Log in to perform this action");
-        case 12:
-          _context.next = 14;
+        case 13:
+          _context.next = 15;
           return res.json();
-        case 14:
+        case 15:
           json = _context.sent;
           return _context.abrupt("return", json);
-        case 18:
-          _context.prev = 18;
-          _context.t0 = _context["catch"](0);
+        case 19:
+          _context.prev = 19;
+          _context.t0 = _context["catch"](1);
           throw new Error(_context.t0);
-        case 21:
+        case 22:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[0, 18]]);
+    }, _callee, null, [[1, 19]]);
   }));
   return function sendReq(_x, _x2) {
     return _ref.apply(this, arguments);
@@ -203,6 +209,8 @@ var videoAction = function videoAction() {
   }
   // video actio -> like, dislike,report
   var action = Array.from(document.querySelectorAll(".actionBtn"));
+  var commemtsForm = document.querySelector(".commemtsForm");
+  var comment = document.querySelector(".commentValue");
   if (action) {
     action.forEach(function (btn) {
       // reqUrl
@@ -242,6 +250,45 @@ var videoAction = function videoAction() {
         }, _callee, null, [[0, 10]]);
       })));
     });
+  }
+  if (commemtsForm) {
+    commemtsForm.addEventListener("submit", /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(e) {
+        var params, url, urlParts, reqUrl, body, res, errMsg;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              e.preventDefault();
+              params = commemtsForm.getAttribute("data-action");
+              url = window.location.href;
+              urlParts = url.split("/playVideo/");
+              reqUrl = "".concat(urlParts[0]).concat(params);
+              _context2.prev = 5;
+              body = {
+                comment: comment.value
+              };
+              _context2.next = 9;
+              return (0,_utilityFunctions__WEBPACK_IMPORTED_MODULE_0__.sendReq)(reqUrl, body, "POST");
+            case 9:
+              res = _context2.sent;
+              window.location.reload();
+              _context2.next = 17;
+              break;
+            case 13:
+              _context2.prev = 13;
+              _context2.t0 = _context2["catch"](5);
+              errMsg = _context2.t0.toString().slice(6, _context2.t0.length);
+              (0,_utilityFunctions__WEBPACK_IMPORTED_MODULE_0__.showError)(errMsg);
+            case 17:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2, null, [[5, 13]]);
+      }));
+      return function (_x) {
+        return _ref2.apply(this, arguments);
+      };
+    }());
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (videoAction);
