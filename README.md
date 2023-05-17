@@ -2,7 +2,7 @@
 
 A video streaming website made using nodeJs ,mongodb and ejs as view engine
 
-<img src="vidtube.jpg" width="100%" alt="vidtube">
+<img src="vidtube.png" width="100%" alt="vidtube">
 
 # Features
 
