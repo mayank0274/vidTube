@@ -3,6 +3,7 @@ import videoAction from "./videoAction"
 import verifyOtp from "./verifyOtp"
 import profile from "./profile"
 import forgotPassword from "./forgotPass"
+import Plyr  from 'plyr'
 
 let toggle = document.querySelector(".toggle");
 let nav = document.querySelector(".menu");
@@ -52,3 +53,10 @@ profile();
 
 // forgotPassword
 forgotPassword();
+
+//plyyr
+const videoElem = Array.from(document.querySelectorAll("video"))
+
+videoElem.forEach((elem)=>{
+  const player = new Plyr(elem)
+})
